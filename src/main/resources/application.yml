@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: circulation-service-test
+  datasource:
+    url: jdbc:postgresql://localhost:5432/circulation
+    username: postgres
+    password: postgres
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+  liquibase:
+    enabled: true
+    change-log: classpath:db.changelog.xml
+    contexts: ${spring.profiles.active}
